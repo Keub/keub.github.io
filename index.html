@@ -4,36 +4,119 @@
     <meta charset="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- ── PWA manifest ─────────────────────────────────── -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- ── Theme / status bar ───────────────────────────── -->
+    <meta name="theme-color" content="#23dc7d" />
+    <meta name="msapplication-TileColor" content="#23dc7d" />
+    <meta name="msapplication-TileImage" content="/AppICON2.png" />
+
+    <!-- ── Standard favicon / touch icons ───────────────── -->
+      <link rel="shortcut icon" href="/AppICON2.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/AppICON2.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/AppICON2.png" />
+
+    <!-- ── Apple PWA (required for "Add to Home Screen") ── -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Keub" />
+
+    <!-- Apple touch icons (used as the home-screen icon on iOS) -->
+      <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+      <link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120.png" />
+      <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152.png" />
+      <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png" />
+
+    <!--
+      Apple splash / startup images — iOS shows these while the PWA launches.
+      Each image MUST exactly match the logical screen size (CSS pixels) for
+      the device.  Using the same green/logo image for all sizes is fine as a
+      starting point; replace with properly-sized files for production.
+    -->
+    <!-- iPhone SE / 5s (320×568) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+          href="/assets/splash-640x1136.png" />
+    <!-- iPhone 8 / 7 / 6 (375×667) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+          href="/assets/splash-750x1334.png" />
+    <!-- iPhone 8 Plus / 7 Plus / 6 Plus (414×736) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1242x2208.png" />
+    <!-- iPhone X / XS / 11 Pro (375×812) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1125x2436.png" />
+    <!-- iPhone XR / 11 (414×896) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+          href="/assets/splash-828x1792.png" />
+    <!-- iPhone XS Max / 11 Pro Max (414×896 @3x) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1242x2688.png" />
+    <!-- iPhone 12 / 13 / 14 (390×844) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1170x2532.png" />
+    <!-- iPhone 12 Pro Max / 13 Pro Max / 14 Plus (428×926) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1284x2778.png" />
+    <!-- iPhone 14 Pro (393×852) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1179x2556.png" />
+    <!-- iPhone 14 Pro Max (430×932) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)"
+          href="/assets/splash-1290x2796.png" />
+    <!-- iPad (768×1024) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+          href="/assets/splash-1536x2048.png" />
+    <!-- iPad Pro 11-inch (834×1194) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+          href="/assets/splash-1668x2388.png" />
+    <!-- iPad Pro 12.9-inch (1024×1366) -->
+    <link rel="apple-touch-startup-image"
+          media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+          href="/assets/splash-2048x2732.png" />
+
     <title>Keub</title>
-    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
-    <style id="expo-reset">
-      /* These styles make the body full-height */
-      html,
-      body {
+
+    <!-- Base styles required for React Native Web flex layout to fill the viewport -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
         height: 100%;
-      }
-      /* These styles disable body scrolling if you are using <ScrollView> */
-      body {
         overflow: hidden;
       }
-      /* These styles make the root element full-height */
       #root {
         display: flex;
+        flex-direction: column;
         height: 100%;
-        flex: 1;
+        overflow: hidden;
       }
     </style>
-  <meta name="theme-color" content="#22dd81">
+  <meta name="theme-color" content="#23dc7d">
 <meta name="description" content="Secure locker booking application by Keub">
 <link rel="icon" href="/favicon.ico" /></head>
-
   <body>
-    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <!-- The root element for your Expo app. -->
     <div id="root"></div>
-  <script src="/_expo/static/js/web/index-0db7a92b6914490e820087e03ce36c17.js" defer></script>
+  <script src="/_expo/static/js/web/index-14730addbac11cbe0fe670294f6a5d40.js" defer></script>
 </body>
+      <script>
+            if ('serviceWorker' in navigator) {
+                  navigator.serviceWorker.register('/sw.js').catch(() => {});
+            }
+      </script>
 </html>
