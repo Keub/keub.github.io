@@ -1,0 +1,37 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "United States (approx bbox)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -124.848974, 24.396308 ],
+            [ -66.885444, 24.396308 ],
+            [ -66.885444, 49.384358 ],
+            [ -124.848974, 49.384358 ],
+            [ -124.848974, 24.396308 ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "India (approx bbox)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ 68.111379, 6.5546079 ],
+            [ 97.395561, 6.5546079 ],
+            [ 97.395561, 35.674545 ],
+            [ 68.111379, 35.674545 ],
+            [ 68.111379, 6.5546079 ]
+          ]
+        ]
+      }
+    }
+  ]
+}
