@@ -1,4 +1,4 @@
-const CACHE_NAME = 'keub-app-v1';
+const CACHE_NAME = 'keub-app-v2';
 const OFFLINE_URL = '/offline.html';
 
 self.addEventListener('install', (event) => {
@@ -28,6 +28,20 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  // Never intercept API, Supabase, Stripe or any cross-origin request —
+  // always go straight to network so cached bundles can't return stale 401/404.
+  const isApiCall = url.hostname !== self.location.hostname
+    || url.pathname.startsWith('/rest/')
+    || url.pathname.startsWith('/functions/')
+    || url.pathname.startsWith('/realtime/')
+    || url.pathname.startsWith('/auth/');
+  if (isApiCall) {
+    // bypass SW entirely — let browser handle it directly
+    return;
+  }
+
   // Only handle navigation requests to serve offline page
   if (event.request.mode === 'navigate') {
     event.respondWith((async () => {
