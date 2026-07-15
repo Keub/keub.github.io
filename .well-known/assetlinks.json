@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.keubit.app",
+      "sha256_cert_fingerprints": [
+        "FC:BE:C5:BA:F5:86:89:A7:D3:D1:3E:3B:81:C1:9E:27:98:31:54:2B:0D:C9:A1:CB:8E:75:E6:10:5B:9D:14:95"
+      ]
+    }
+  }
+]
