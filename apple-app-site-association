@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["J28CYS4W5K.com.keubit.app"],
+        "components": [
+          { "/": "/*", "comment": "Open Keub Universal Links in the iOS app" }
+        ]
+      }
+    ]
+  }
+}
